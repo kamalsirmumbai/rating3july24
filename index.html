@@ -1,0 +1,87 @@
+<html>
+	<head>
+		<title> Rating App by Kamal Sir </title>
+		<style>
+			* { font-size:50px; font-family: Ink Free; }
+			body { background-color: #BBBCC6;}
+		</style>
+	</head>
+	<body>
+	<center>
+		<h1> Rating App </h1>
+		<form onsubmit="show()">
+		<input type="number" placeholder="enter rating between 1 to 5" 
+		style="width:700px;" id="rating"/>
+		<br/><br/>
+		<input type="submit" value="M1"/>
+		<input type="submit" value="M2"/>
+		<input type="submit" value="M3"/>
+		</form>
+		<h2 id="msg"/>
+		<script>
+			function show()
+			{
+				event.preventDefault();
+				let rating = document.getElementById("rating");				
+				let msg = document.getElementById("msg");	
+		
+				if (rating.value === "")
+				{
+					alert("rating is empty");
+					msg.innerHTML = "";
+					rating.focus();
+					return;
+				}			
+
+				let r = parseInt(rating.value);
+
+				if ((r < 1) || (r > 5))
+				{
+					alert("rating shud be between 1 to 5");
+					msg.innerHTML = "";
+					rating.value = "";
+					rating.focus();
+					return;
+				}
+			
+				let action = document.activeElement.value;
+
+				if (action === "M1")
+				{
+					let res = "";
+					if (r== 5)			res = "Excellent";
+					else if (r == 4)		res = "Excellent";
+					else if (r == 3)		res = "Ok";
+					else if (r == 2)		res = "Ok";
+					else 				res = "Poor";
+					msg.innerHTML = "M1 --> " + res;
+				}
+				else if (action === "M2")
+				{
+					let res = "";
+					if ( (r== 5) || (r==4))			res = "Excellent";
+					else if ( (r == 3) || (r==2))		res = "Ok";
+					else 						res = "Poor";
+					msg.innerHTML = "M2 --> " + res;
+
+				}
+				else if (action === "M3")
+				{
+					// switch case
+				}			
+				
+
+			}
+		</script>
+	</center>
+	</body>	
+</html>
+
+
+
+
+
+
+
+
+
